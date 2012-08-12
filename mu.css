@@ -1,0 +1,43 @@
+body {
+	font-family: mikachan, 'Microsoft JhengHei', '微軟正黑體', fantasy;
+	position: relative;
+	z-index: 0;
+}
+.wf-loading body, .wf-inactive body {
+	font-family:
+	'メイリオ', Meiryo, 'ヒラギノ角ゴ StdN W8', 'Hiragino Kaku StdN W8',
+	'ＭＳ Ｐゴシック', 'MS PGothic',
+	'Microsoft JhengHei', '微軟正黑體', fantasy;
+}
+.cp-progress-holder {
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+}
+#muboard {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -3;
+
+	background: transparent;
+	color: #a8c7bf;
+}
+#muboard .shock {
+	color: #f5cfd6;
+}
+#muground {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -10;
+
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+}
+.sticky-footer p {
+	color: #a8c7bf;
+	padding-left: 10px;
+	font-size: 80%;
+}

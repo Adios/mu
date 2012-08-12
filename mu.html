@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<title>～～～ん</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="stylesheet" href="muplayer/skin.css" />
+	<link rel="stylesheet" href="mu.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+	<script type="text/javascript" src="muplayer/jquery.jplayer-2.1.2.min.js"></script>
+	<script type="text/javascript" src="muplayer/all.js"></script>
+	<script type="text/javascript" src="muuun/socket.io.js"></script>
+	<script type="text/javascript" src="mu.js"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			border: none;
+		}
+		html, body { height: 100%; }
+		.sticky-wrapper {
+			min-height: 100%;
+			_height: 100%;
+			margin: 0 auto -20px;
+		}
+		.sticky-footer, .sticky-push {
+			height: 20px;
+		}
+		.alignment-wrapper {
+			height: 100%;
+			display: table;
+			overflow: visible;
+			*position: relative;
+		}
+		.alignment-cell {
+			display: table-cell;
+			vertical-align: middle;
+			*position: absolute;
+			*top: 50%;
+			*left: 50%;
+		}
+		.alignment-content {
+			*position: relative;
+			*top: -50%;
+			*left: -50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="sticky-wrapper alignment-wrapper">
+		<div class="alignment-cell">
+			<div id="muplayer" class="alignment-content mu-container">
+				<div class="cp-progress-holder">
+					<div class="cp-progress-1"></div>
+					<div class="cp-progress-2"></div>
+				</div>
+				<div class="cp-circle-control"></div>
+				<ul class="mu-controls" title="or press Enter">
+					<li><a href="#" class="mu-play" tabindex="1">mu</a></li>
+					<!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+					<li><a href="#" class="mu-pause" style="display:none;" tabindex="1">stop</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="sticky-push"></div>
+	</div>
+	<div class="sticky-footer">
+		<p>MU is an live streaming system based on ffmpeg, ffserver and foobar2000.</p>
+	</div>
+
+	<div id="musound" class="mu-audio"></div>
+	<ul id="muboard"></ul>
+	<img id="muground" src="muoff.jpg" alt="meromero" />
+</body>
+</html>

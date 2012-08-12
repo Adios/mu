@@ -1,0 +1,90 @@
+.mu-container {
+	position: relative;
+	width: 220px;
+	height: 220px;
+	background: url('button.png') no-repeat 0 0;
+	padding: 40px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.mu-container:focus {
+	border: none;
+	outline: 0;
+}
+.cp-progress-1, .cp-progress-2 {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 220px;
+	height: 220px;
+	clip: rect(0px, 110px, 220px, 0px);
+
+	-moz-border-radius: 110px;
+	-webkit-border-radius: 110px;
+	border-radius: 110px;
+}
+
+/* FALLBACK for .progress
+ * (24 steps starting from 1hr filled progress, Decrease second value by 104px for next step)
+ * (It needs the container selector to work. Or use div)
+ */
+
+.mu-container .cp-fallback {
+	background: url("progress_sprite.jpg") no-repeat;
+	background-position: 0px 220px;
+}
+
+.cp-progress-1, .cp-progress-2 {
+	background: url('volume.png') no-repeat 0 0;
+}
+.cp-progress-holder, .cp-circle-control {
+	position: absolute;
+	width: 220px;
+	height: 220px;
+}
+.cp-circle-control {
+	cursor: pointer;
+}
+.cp-progress-holder {
+	z-index: -2;
+	clip: rect(0px, 220px, 220px, 110px);
+	display: none;
+}
+/* This is needed when progress is greater than 50% or for fallback */
+.cp-progress-holder.cp-gt50, .cp-progress.cp-fallback{
+	clip: rect(auto, auto, auto, auto);
+}
+.mu-controls {
+	margin: 0;
+	padding: 70px;
+}
+.mu-controls li {
+	list-style-type: none;
+	display: block;
+
+	/*IE Fix*/
+	position: absolute;
+}
+.mu-controls li a {
+	position: relative;
+	display: block;
+	width: 80px;
+	height: 80px;
+	text-indent: -9999px;
+	z-index: 1;
+}
+.mu-controls .mu-play {
+	background: transparent url('controls.png') no-repeat 0 0;
+}
+.mu-controls .mu-play:hover {
+	background: transparent url('controls.png') no-repeat -79px 0;
+}
+.mu-controls .mu-pause {
+	background: transparent url('controls.png') no-repeat 0 -80px;
+}
+.mu-controls .mu-pause:hover {
+	background: transparent url('controls.png') no-repeat -80px -80px;
+}
+.mu-audio {
+	width: 0;
+	height: 0;
+}
