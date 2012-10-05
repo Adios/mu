@@ -1,30 +1,31 @@
 $('<img src="muon.jpg" />');
 
 $(document).on('ready', function () {
-	var	socket = io.connect('http://mu.adios.tw', {
+	if (typeof io == 'object') {
+		var socket = io.connect('http://mu.adios.tw', {
 			resource: 'muuun'
-		}),
-
-		mu = new CirclePlayer('#musound', {
-			webma: 'http://adios.tw:8080/mu.webm',
-			mp3: 'http://adios.tw:8080/mu.mp3'
-		}, {
-			swfPath: 'muplayer',
-			preload: 'none',
-			supplied: 'mp3, webma',
-			cssSelectorAncestor: '#muplayer',
-			cssSelector: {
-				play: '.mu-play',
-				pause: '.mu-pause'
-			}
 		});
+		socket.on('connect', function hello () {
+			socket.emit('konbanmuuun');
+			socket.removeListener('connect', hello);
+		})
+		.on('meta-muuun', function (data) {
+			muuun($.parseJSON(data));
+		});
+	}
 
-	socket.on('connect', function hello () {
-		socket.emit('konbanmuuun');
-		socket.removeListener('connect', hello);
-	})
-	.on('meta-muuun', function (data) {
-		muuun($.parseJSON(data));
+	var	mu = new CirclePlayer('#musound', {
+		webma: 'http://adios.tw:8080/mu.webm',
+		mp3: 'http://adios.tw:8080/mu.mp3'
+	}, {
+		swfPath: 'muplayer',
+		preload: 'none',
+		supplied: 'mp3, webma',
+		cssSelectorAncestor: '#muplayer',
+		cssSelector: {
+			play: '.mu-play',
+			pause: '.mu-pause'
+		}
 	});
 
 	mu.player.on($.jPlayer.event.play, function () {
