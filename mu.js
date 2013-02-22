@@ -5,12 +5,10 @@ $(document).on('ready', function () {
 		var socket = io.connect('http://mu.adios.tw', {
 			resource: 'muuun'
 		});
-		socket.on('connect', function hello () {
-			socket.emit('konbanmuuun');
-			socket.removeListener('connect', hello);
-		})
-		.on('meta-muuun', function (data) {
-			muuun($.parseJSON(data));
+		socket.on('connect', function () {
+			socket.on('meta-muuun', function (data) {
+				muuun($.parseJSON(data));
+			});
 		});
 	}
 
