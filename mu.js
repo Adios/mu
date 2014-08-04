@@ -1,20 +1,16 @@
 $('<img src="muon.jpg" />');
 
 $(document).on('ready', function () {
-	if (typeof io == 'object') {
-		var socket = io.connect('http://mu.adios.tw', {
-			resource: 'muuun'
-		});
-		socket.on('connect', function () {
-			socket.on('meta-muuun', function (data) {
-				muuun($.parseJSON(data));
-			});
+	if (typeof io == 'function') {
+		var socket = io.connect('http://mu.adios.tw');
+		socket.on('meta-muuun', function (data) {
+			muuun($.parseJSON(data));
 		});
 	}
 
 	var	mu = new CirclePlayer('#musound', {
-		webma: 'http://adios.tw:8080/mu.webm',
-		mp3: 'http://adios.tw:8080/mu.mp3'
+		mp3: 'http://csie1.cs.ccu.edu.tw:1227/mu.mp3',
+		webma: 'http://csie1.cs.ccu.edu.tw:1227/mu.webm'
 	}, {
 		swfPath: 'muplayer',
 		preload: 'none',
