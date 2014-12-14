@@ -8,13 +8,21 @@ $(document).on('ready', function () {
 		});
 	}
 
-	var	mu = new CirclePlayer('#musound', {
-		mp3: 'http://csie1.cs.ccu.edu.tw:1227/mu.mp3',
-		webma: 'http://csie1.cs.ccu.edu.tw:1227/mu.webm'
+	// dirty workaround for mobile wav
+	var supplied = 'wav, webma, mp3';
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+		supplied = 'mp3, webma, wav';
+	}
+
+	var	ffserver = 'http://gaisk.cs.ccu.edu.tw:1227/',
+		mu = new CirclePlayer('#musound', {
+		wav: ffserver + 'mu.wav',
+		webma: ffserver + 'mu.webm',
+		mp3: ffserver + 'mu.mp3'
 	}, {
 		swfPath: 'muplayer',
 		preload: 'none',
-		supplied: 'mp3, webma',
+		supplied: supplied,
 		cssSelectorAncestor: '#muplayer',
 		cssSelector: {
 			play: '.mu-play',
